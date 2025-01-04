@@ -3,35 +3,55 @@
 let catalogo = [];
 
 const agregarProducto = ( nombre, precio ) => {
-    const producto = { nombre, precio };
-    if(!nombre || !precio) return console.log("Todos los campos son necesarios");
-    if(typeof nombre !== "string" || typeof precio !== "number") return console.log("El nombre debe ser de tipo string y el precio de tipo number");
-    catalogo.push(producto);
+    try {
+        const producto = { nombre, precio };
+        if(!nombre || !precio) return console.log("Todos los campos son necesarios");
+        if(typeof nombre !== "string" || typeof precio !== "number") return console.log("El nombre debe ser de tipo string y el precio de tipo number");
+        catalogo.push(producto);
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 const eliminarProducto = ( nombre ) => {
-    const productoEliminado = catalogo.filter(item => item.nombre === nombre);
-    if(productoEliminado.length === 0) return console.log(`El producto con nombre: ${nombre}, no existe..`);
-    catalogo = catalogo.filter( item => item.nombre !== nombre);
-    console.log("producto eliminado:", productoEliminado);
+    try {
+        const productoEliminado = catalogo.filter(item => item.nombre === nombre);
+        if(productoEliminado.length === 0) return console.log(`El producto con nombre: ${nombre}, no existe..`);
+        catalogo = catalogo.filter( item => item.nombre !== nombre);
+        console.log("producto eliminado:", productoEliminado);
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 const buscarProductoFuncionAnonima = function( nombre ) {
-    const index = catalogo.findIndex( item => item.nombre === nombre);
-    if(index.length <= -1) return console.log(`El producto con nombre: ${nombre}, no existe..`);
-    const productoFiltrado = catalogo.filter( item => item.nombre === nombre);
-    console.log("buscar funcion anonima:", productoFiltrado);
+    try {
+        const index = catalogo.findIndex( item => item.nombre === nombre);
+        if(index.length <= -1) return console.log(`El producto con nombre: ${nombre}, no existe..`);
+        const productoFiltrado = catalogo.filter( item => item.nombre === nombre);
+        console.log("buscar funcion anonima:", productoFiltrado);
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 const buscarProductoFuncionFlecha = ( nombre ) => {
-    const index = catalogo.findIndex( item => item.nombre === nombre);
-    if(index.length <= -1) return console.log(`El producto con nombre: ${nombre}, no existe..`);
-    const productoFiltrado = catalogo.filter( item => item.nombre === nombre);
-    console.log("buscar funcion flecha:", productoFiltrado);
+    try {
+        const index = catalogo.findIndex( item => item.nombre === nombre);
+        if(index.length <= -1) return console.log(`El producto con nombre: ${nombre}, no existe..`);
+        const productoFiltrado = catalogo.filter( item => item.nombre === nombre);
+        console.log("buscar funcion flecha:", productoFiltrado);
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 const mostrarProductos = () => {
-    console.log("catalogo:", catalogo);
+    try {
+        console.log("catalogo:", catalogo);
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 agregarProducto("zapatos", 100);
