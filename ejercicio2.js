@@ -7,7 +7,7 @@ const productosIniciales = [
 
 const tienda = [...productosIniciales];
 
-function manejoTienda(productosIniciales) {
+const manejoTienda = (productosIniciales) => {
     Array.isArray(productosIniciales) ? productosIniciales : [productosIniciales];
 
     const agregarProducto = ( nombre, precio, cantidad ) => {
